@@ -3,7 +3,7 @@
 ## Get started
 ```bash
 git clone https://github.com/urve/gyrate
-cd gyrate
+cd gyrate/gyrate
 bash SETUP
 ./gyrate --help
 ```
