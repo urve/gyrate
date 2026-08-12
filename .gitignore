@@ -5,4 +5,5 @@ gyrate/gyrate
 sc/sc
 sc/classifications/*.txt
 terms.txt
+*.sw*
 
