@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+
+go build
+cd ../sc
+go build
+cd ../gyrate
+go build
+chmod u+x ./components/lr/lr.py
+chmod u+x ./components/dup/dup.py
+chmod u+x ./components/embed/embed.py
+chmod u+x ./components/values/difference
+chmod u+x ./components/dep/dep.py
+python3 -m pip install -r requirements.txt
