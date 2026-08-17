@@ -16,7 +16,7 @@ See [funding and license information](#Funding-and-license-information) how this
 
 This is a wrapper for a suite of text analysis tools for digital humanists attempting to classify and compare texts in a large corpus. Three different classification methods -- naive Bayesian classification, logistic regression, and a dirty vector embedding -- are provided.
 
-The data can be difficult to interpret, so a few bridging utilities are included. These include connecting to a sqlite3 database to get years, normalize CSVs, and detect duplicates.
+The data can be difficult to interpret, so a few bridging utilities are included. These include connecting to a sqlite3 database to get years, normalize CSVs, parse dependencies (associations of verbs to a noun), and detect duplicates.
 
 ### Split-and-classify
 
@@ -96,6 +96,11 @@ Supposing that `QUERY` is a quotation-mark-enclosed string, the `--embed-rebuild
 A few barebones examples are given in `./gyrate --examples`. These show some ways that `gyrate` can be used in pipelines.
 
 ### WIP
+
+* Make Bayes, logistic, and vector versions all be able to do sentence scoring
+  * ~~Bayes~~
+  * logistic
+  * vector
 
 * `--gazetteer`: a gazetteer to track places mentioned in works across the corpus, perhaps distinguishable by year
 

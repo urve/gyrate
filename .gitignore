@@ -6,4 +6,5 @@ sc/sc
 sc/classifications/*.txt
 terms.txt
 *.sw*
-
+gyrate/recurse_debug.sh
+gyrate/tmp/*

@@ -12,6 +12,8 @@ func main() {
     components.Bayes()
   } else if os.Args[1] == "--bayes-all" {
     components.BayesAll()
+  } else if os.Args[1] == "--bayes-sentence" {
+    components.BayesSentence()
   } else if os.Args[1] == "--logistic" {
     components.Logistic()
   } else if os.Args[1] == "--logistic-all" {
