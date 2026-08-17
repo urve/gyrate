@@ -14,9 +14,13 @@ See [funding and license information](#Funding-and-license-information) how this
 
 ### Overview
 
+This is a wrapper for a suite of text analysis tools for digital humanists attempting to classify and compare texts in a large corpus. Three different classification methods -- naive Bayesian classification, logistic regression, and a dirty vector embedding -- are provided.
+
+The data can be difficult to interpret, so a few bridging utilities are included. These include connecting to a sqlite3 database to get years, normalize CSVs, and detect duplicates.
+
 ### Split-and-classify
 
-`sc CANNIBALIZED_FILE FIRST_CLASS SECOND_CLASS`
+`sc CANNIBALIZED_FILE FIRST_CLASS.txt SECOND_CLASS.txt`
 
 `sc` takes a `CANNIBALIZED_FILE` and iterates over its sentences. You can press `y` or `n` for each sentence for whether it classifies as `FIRST_CLASS` (`y`) or `SECOND_CLASS`.
 
@@ -37,6 +41,9 @@ This determines whether each file in the DIRECTORY contains a duplicate. Duplica
 Assuming that a sqlite3 database `DB` contains a table `TABLE`, which includes both `original_id` (corresponding to filenames) and `year` column, and this returns a series of `.json` files in `components/dep/terms`. These files are created based on the `TERM`, which is either a single noun passed directly into the command or a file of newline-delimited single nouns. Because this parsing can, at times, take quite a long time if the `TERM` is common, or if the `DIRECTORY` is large, progress bars are shown.
 
 A directory `components/dep/terms/TERM` is created. For each `year` that are represented in the `DIRECTORY`, a file of the form `TERM-year.json` is created, which is of the form `"verb": count`. Each `verb` is a verb associated with the noun `TERM`, either in active or passive voice. A file `TERM.json` is also created which represents appearances of `TERM` across the corpus.
+
+This currently uses `spacy`'s `en_core_web_lg`, which is large. You can adjust the
+model accordingly.
 
 ### Year bridge
 
@@ -88,11 +95,17 @@ Supposing that `QUERY` is a quotation-mark-enclosed string, the `--embed-rebuild
 
 A few barebones examples are given in `./gyrate --examples`. These show some ways that `gyrate` can be used in pipelines.
 
+### WIP
+
+* `--gazetteer`: a gazetteer to track places mentioned in works across the corpus, perhaps distinguishable by year
+
 ## Requirements
 
 ### Utilities
 - GNU `parallel`
 - `xan`
+
+Installation of these depends on your operating system. On macOS, you can use `brew`.
 
 ### Go modules
 - `github.com/jbrukh/bayesian`
